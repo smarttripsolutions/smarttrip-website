@@ -1,0 +1,47 @@
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { FaPlane, FaPassport, FaBriefcase, FaUniversity, FaHome, FaHandsHelping } from "react-icons/fa";
+
+const services = [
+  { id: "visa", icon: FaPassport, title: "Visa Processing & Travel Documentation", description: "Expert visa application services, interview coaching, appointment scheduling, proof of funds, and travel insurance." },
+  { id: "flights", icon: FaPlane, title: "Flight Booking & Ticketing", description: "Domestic & international flight reservations with flexible and refundable ticket options." },
+  { id: "study", icon: FaUniversity, title: "Work & Study Abroad Assistance", description: "Guidance on student visas, skilled worker pathways, and postgraduate residency options." },
+  { id: "migration", icon: FaHome, title: "Relocation & Migration Services", description: "PR & work visa support, job search assistance, and settlement services." },
+  { id: "business", icon: FaBriefcase, title: "Business & Corporate Travel", description: "Business visa advisory, investor visa assistance, and premium travel bookings." },
+  { id: "pilgrimage", icon: FaHandsHelping, title: "Pilgrimage & Group Tours", description: "Hajj, Umrah, Holy Land tours, and African community tours." },
+];
+
+export default function SmartTripSolutions() {
+  const [selectedTab, setSelectedTab] = useState("visa");
+
+  return (
+    <div className="p-10 max-w-6xl mx-auto">
+      <h1 className="text-3xl font-bold text-center mb-6">SmartTrip Solutions</h1>
+      <p className="text-center mb-8">Your Trusted Partner for Hassle-Free Travel & Migration Services</p>
+      
+      <Tabs defaultValue="visa" className="mb-8" onValueChange={setSelectedTab}>
+        <TabsList className="flex flex-wrap justify-center gap-4">
+          {services.map(service => (
+            <TabsTrigger key={service.id} value={service.id} className="px-4 py-2">{service.title}</TabsTrigger>
+          ))}
+        </TabsList>
+
+        {services.map(service => (
+          <TabsContent key={service.id} value={service.id}>
+            <Card className="p-6 shadow-lg">
+              <service.icon className="text-5xl mx-auto mb-4 text-blue-500" />
+              <h2 className="text-xl font-semibold text-center">{service.title}</h2>
+              <p className="text-center mt-2">{service.description}</p>
+            </Card>
+          </TabsContent>
+        ))}
+      </Tabs>
+
+      <div className="text-center mt-6">
+        <Button className="px-6 py-2 text-lg">Contact Us</Button>
+      </div>
+    </div>
+  );
+}
