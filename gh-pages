@@ -1,3 +1,4 @@
+npm install gh-pages --save-dev
 npx create-react-app smarttrip-website
 cd smarttrip-website
 npm start
