@@ -1,6 +1,8 @@
-"homepage": "https://YOUR_USERNAME.github.io/smarttrip-website",
+npm install gh-pages --save-dev
+"homepage": "https://smarttripsolutions.github.io/smarttrip-website",
 "scripts": {
   "predeploy": "npm run build",
   "deploy": "gh-pages -d build"
 }
-"homepage": "https://smarttripsolutions.github.io/smarttrip-website",
+npm run deploy
+
