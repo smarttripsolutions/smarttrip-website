@@ -1,2 +1,0 @@
-npx create-react-app smarttrip-website
-cd smarttrip-website
